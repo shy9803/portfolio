@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+/* 헤더 서식 */
+header {position: fixed; left: 0; top: 0; width: 100%; height: 80px; z-index: 100; background: var(--m_color_bk); color: var(--m_color_wh);}
+header > h1 {font-family: "Damion", cursive; float: left; padding: 22px 0px 0px 30px; font-size: var(--font_24);}
+header nav {width: 50%; float: right;}
+header nav > ul {display: flex; justify-content: space-around;}
+header nav > ul > li{line-height: 80px;}
+header nav a {border: none; background: none; color: var(--m_color_wh); cursor: pointer; font-size: var(--font_16); transition: 0.2s;}
+header nav a:hover {text-decoration: underline; font-weight: bold; color: var(--m_color_y-bs);}
+
+/* 메인 영역 - 콘텐츠 레이아웃 서식 */
+section {width: 100%; background: var(--m_color_wh); transition: 0.5s; padding-top: 80px;}
+
+/* 푸터 영역 서식 */
+footer {background:#eee; line-height: 40px;}
+footer address {line-height: 40px; text-align: center; color: var(--m_color_wh); font-style: normal;}
