@@ -13,5 +13,15 @@ header nav a:hover {text-decoration: underline; font-weight: bold; color: var(--
 section {width: 100%; background: var(--m_color_wh); transition: 0.5s; padding-top: 80px;}
 
 /* 푸터 영역 서식 */
-footer {background:#eee; line-height: 40px;}
+footer {background:#666; line-height: 40px;}
 footer address {line-height: 40px; text-align: center; color: var(--m_color_wh); font-style: normal;}
+
+/* 반응형 */
+/* 태블릿 크기 */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+
+}
+
+/* 모바일 크기 */
+@media screen and (max-width: 767px) {
+}

@@ -13,21 +13,27 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 #intro > p:last-of-type {top: 58%; font-size: var(--font_16); width: 90%;}
 
 /* 메인 영역 - 프로필 */
-.pf_wrap {position: relative; height: 85vh;}
-.pf_left_side, .pf_right_side {width: 47%; margin: 0 1%; padding: 10px; position: absolute;}
-.pf_l_sch, .pf_l_edu, .pf_r_lcs {max-width: 894.41px; width: 100%;}
-.pf_left_side {left: 0; top: 0;}
-.pf_right_side {bottom: 5%; right: 0;}
-.pf_l_edu {margin-top: 10%;}
-.pf_l_sch > div, .pf_l_edu > div, .pf_r_lcs > div {display: flex; background: var(--m_color_y-wh); padding: 14px 6px; margin: 10px 0; width: 100%; box-sizing: border-box; border-radius: 5px;}
+.pf_wrap {height: 85vh;}
+.pf_left_side, .pf_right_side {width: 47%; margin: 0 1%; padding: 10px;}
+.pf_l_sch, .pf_l_edu, .pf_l_lcs {max-width: 894.41px; width: 100%;}
+.pf_l_edu, .pf_l_lcs {margin-top: 6%;}
+.pf_l_sch > div, .pf_l_edu > div, .pf_l_lcs > div, .pf_r_hobby > div, .pf_r_type > div {display: flex; margin: 10px 0; width: 100%; box-sizing: border-box; border-radius: 5px;}
+.pf_l_sch > div, .pf_l_edu > div, .pf_l_lcs > div {padding: 14px 6px; background: var(--m_color_y-bs);}
 .pf_l_sch > div > p, .pf_l_edu > div > p, .pf_r_lcs > div > p {align-content: center;}
-.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child, .pf_r_lcs > div > p:first-child {border-right: 1px solid var(--m_color_bk); padding-right: 1%;}
-.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child {width: 24%; border-right: 1px solid var(--m_color_bk); padding-right: 1%;}
-.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child, .pf_r_lcs > div > p:first-child {text-align: center;}
+.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child, .pf_l_lcs > div > p:first-child {border-right: 1px solid var(--m_color_bk); padding-right: 1%;}
+.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child {width: 16%; border-right: 1px solid var(--m_color_bk); padding-right: 1%;}
+.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child, .pf_l_lcs > div > p:first-child {text-align: center;}
 .pf_l_sch > div > p:last-child, .pf_l_edu > div > p:last-child {width: 85%; padding-left: 10px;}
-.pf_r_lcs > div > p:first-child {width: 16%;}
-.pf_r_lcs > div > p:nth-child(2) {text-align: center; width: 58%;}
-.pf_r_lcs > div > p:last-child {width: 26%; text-align: right; border-left: 1px solid var(--m_color_bk); padding-left: 1%;}
+.pf_l_lcs > div > p:first-child {width: 16%;}
+.pf_l_lcs > div > p:nth-child(2) {text-align: center; width: 54%;}
+.pf_l_lcs > div > p:last-child {width: 30%; text-align: right; border-left: 1px solid var(--m_color_bk); padding: 0 1%;}
+
+.pf_r_hobby, .pf_r_type {padding: 8px 12px; box-sizing: border-box; border-radius: 5px; margin: 6% auto; background: var(--m_color_y-wh); }
+.pf_r_hobby > h3, .pf_r_type > h3 {line-height: 2rem;}
+.pf_r_hobby > div, .pf_r_type > div {flex-wrap: wrap;}
+.pf_r_hobby > div > p, .pf_r_type > div > p {background: var(--m_color_wh); padding: 10px 15px; margin: 6px 5px; border-radius: 10px; text-align: center;}
+
+.pf_r_hobby {margin-top: 0;}
 
 /* 메인 영역 - 스킬 */
 .skl_wrap ul, .skl_info {align-items: center; margin: 16px 0;}
@@ -68,7 +74,7 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 .prj_l_info_cont {background: #efefef; box-sizing: border-box; padding: 5px; border-radius: 6px;}
 .prj_l_info_cont > p {margin: 10px 0;}
 .prj_l_info_btn {background: #555; position: absolute; bottom: 0; right: 0; width: 35px; height: 50px; border-radius: 14px 14px 25px 25px;}
-.prj_l_info_btn a {display: block; width: 100%;}
+.prj_l_info_btn a {display: block; width: 100%; color: var(--m_color_wh); text-align: center; align-items: center; line-height: 2.8rem;}
 
 .prj_r_mnu > button {border: none; background: #eee; padding: 6px 12px; border-radius: 5px; margin: 4px 2px; cursor: pointer;}
 .prj_r_mnu > button:hover {background: #dcdcdc;}

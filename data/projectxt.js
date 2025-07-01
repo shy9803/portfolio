@@ -1,0 +1,5 @@
+const project = [
+  {id: 1, name: '유한양행', skill: 'html5, css3, javascript', date: '2025.00.00~2025.00.00 (00일)', person: '개인', size: 'PC: 1920x1080px (기준 1240px)', info: '세계 10대 직무 기업 중 선정한 리뉴얼 원페이지 레이아웃 홈페이지입니다.', pc: 'personal_pc.jpg'},
+  {id: 2, name: '롯데시네마', skill: 'html5, css3, javascript, jquery, php, mysql', date: '2025.00.00~2025.00.00 (00일)', person: '팀(4인)', size: 'PC: 1920x1080px (기준 1240px), Tablet: MAX(1024px), MIN(768px), Mobile: MAX(767px)', info: '3대 영화사 중 리뉴얼을 하고자 선정한 홈페이지입니다.', pc: 'team1_pc.jpg', tablet: 'team1_tablet.jpg', mobile: 'team1_mobile.jpg'},
+  {id: 3, name: '그린마켓', skill: 'html5, css3, javascript, react, mysql(mariaDB)', date: '2025.05.00~2025.06.27 (00일)', person: '팀(4인)', size: 'PC: 1920x1080px (기준 1240px), Tablet: MAX(1024px), MIN(768px), Mobile: MAX(767px)', info: '중고매매를 주제로 한 홈페이지로, 로고부터 시작하여 모든 것을 만들었습니다.', pc: 'team2_pc.jpg', tablet: 'team2_tablet.jpg', mobile: 'team2_mobile.jpg'}
+]
