@@ -1,29 +1,47 @@
-/*
-  // 구상
-  옆에 해당되는 상세보기 링크/모달 생성.
-*/
-
-const ptf_list = document.querySelectorAll('.prj_r_list > picture > img'); // 리스트 이미지
+/* --- 변수 선언 --- */
+// 프로젝트 목업 화면
 const mku_mockup = document.querySelector('.prj_l_mockup'); // pc,tablet,mobile 모양 묶음
 const mku_pc = document.querySelector('[data-key="pc"]'); // PC 크기의 이미지 바구니
 const mku_tab = document.querySelector('[data-key="tablet"]'); // Tablet 크기의 이미지 바구니
 const mku_mob = document.querySelector('[data-key="mobile"]'); // Mobile 크기의 이미지 바구니
+
+// 프로젝트 정보 및 모달 팝업창
 const prj_info = document.querySelector('.prj_l_info_cont'); // 정보 입력구간
+
 const prj_btn = document.querySelector('.prj_l_info_btn'); // 모달 연결구간
 const prj_modal = document.getElementById('prj_modal'); // 모달 화면
-const prj_mnu_btn = document.querySelectorAll('.prj_r_mnu > button'); // 탭 메뉴
-const prj_modal_info = document.querySelector('.prj_modal_info');
-const prj_link = prj_modal_info.querySelector('a');
-const prj_desc = prj_modal_info.querySelector('p');
+const prj_modal_info = document.querySelector('.prj_modal_btnwrap');
+const prj_plan = prj_modal_info.querySelector('.prj_mod_btn_plan');
+const prj_link = prj_modal_info.querySelector('.prj_mod_btn_link');
+const prj_desc = prj_modal_info.querySelector('.prj_modal_info');
 
+// 프로젝트 탭 메뉴 및 리스트
+const prj_mnu_btn = document.querySelectorAll('.prj_r_mnu > button'); // 탭 메뉴
+const prj_list = document.querySelectorAll('.prj_r_list li > picture > img'); // 리스트 이미지
+
+/* --- 함수 작성 --- */
 // 각 이미지를 클릭할 때
-ptf_list.forEach(item => {
+prj_list.forEach(item => {
   item.addEventListener('click', () => {
     // console.log(item);
 
     const ptf_alt = item.alt; // index.html의 img태그 alt명
     const select_data = project.find(itm => itm.name === ptf_alt); // img태그 alt명과 data.js와 비교하여 값 찾기
     // console.log(ptf_alt, select_data);
+
+    // const matched = project.find(p => p.name === alt);
+
+    // // 
+    // if(matched) {
+    //   const skill_list = matched.skill.toLowerCase().split(',').map(s => s.trim());
+    //   const main_skill = skill_list.includes('react') ? 'react'
+    //   : skill_list.includes('php') ? 'php'
+    //   : skill_list.includes('jquery') ? 'jquery'
+    //   : skill_list.includes('javascript') ? 'javascript'
+    //   // : skill_list.includes('html5', 'css3') ? 'html+css'
+    //   : 'others';xx
+    //   img.dataset.type = main_skill;
+    // }
 
     if(!select_data) return;
 
@@ -93,8 +111,16 @@ ptf_list.forEach(item => {
 
     // 해당 정보의 모달 팝업창 내용 변경
     if(select_data.plan) {
-      prj_link.href = select_data.plan;
-      prj_link.style = display = 'inline'; // 보이기
+      prj_plan.href = select_data.plan;
+      prj_plan.style.display = 'inline'; // 보이기
+    } else {
+      prj_plan.href = '#';
+      prj_plan.style.display = 'none'; // 숨기기
+    }
+
+    if(select_data.link) {
+      prj_link.href = select_data.link;
+      prj_link.style.display = 'inline';
     } else {
       prj_link.href = '#';
       prj_link.style.display = 'none'; // 숨기기
@@ -128,7 +154,7 @@ prj_mnu_btn.forEach(btn => {
 
     const filter = btn.dataset.type;
 
-    ptf_list.forEach(item => {
+    prj_list.forEach(item => {
       const item_type = item.dataset.type;
 
       if(filter === 'all' || item_type === filter) {
@@ -137,12 +163,7 @@ prj_mnu_btn.forEach(btn => {
         item.style.display = 'none';
       }
     });
-});
-  /* 구상
-    - 클릭한 버튼에 서식 적용, 이전 버튼은 서식 제거
-    - 해당 버튼에 해당하는 부분이 기술 내용에 포함되면 리스트에서 출력 (ex. html+css = html, css / js = js 포함)
-  */
-  
+  });
 });
 
 // 이미지별 모달 내용 변경
