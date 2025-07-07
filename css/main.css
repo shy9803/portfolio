@@ -8,16 +8,17 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 /* 메인 영역 - 인트로 */
 #intro {height: 92vh; background: url(../images/intro_bg.png) no-repeat; background-position: 50%; background-size: cover; position: relative;}
 
-#intro > p {text-align: center; position: absolute; left: 50%; transform: translate(-50%, -50%);}
+#intro > p {text-align: center; position: absolute; left: 50%; transform: translate(-50%, -50%); width: 100%;}
 #intro > p:first-of-type {top: 50%; font-size: var(--font_20); font-weight: bold;}
-#intro > p:last-of-type {top: 58%; font-size: var(--font_16); width: 90%;}
+#intro > p:last-of-type {top: 58%; font-size: var(--font_16);}
 
 /* 메인 영역 - 프로필 */
 .pf_left_side, .pf_right_side {margin: 0 auto; padding: 10px; box-sizing: border-box;}
 .pf_left_side {width: 24%;}
 
 .pf_l_pic, .pf_l_btm {width: 100%;}
-.pf_l_pic img {width: 100%; height: 100%; border-radius: 15px; border: 4px solid #efefef; box-sizing: border-box;}
+.pf_l_pic > picture {width: 60%; margin: 0 auto; display: block;}
+.pf_l_pic img {width: 100%; height: 100%; border-radius: 15px; border: 4px solid #efefef;}
 
 .pf_l_hobby, .pf_l_type {padding: 8px 12px; box-sizing: border-box; border-radius: 5px; margin: 6% auto; background: var(--m_color_y-wh); width: 100%;}
 .pf_l_hobby > h3, .pf_l_type > h3 {line-height: 2rem;}
@@ -38,8 +39,8 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 .pf_l_sch > div, .pf_l_edu > div, .pf_l_lcs > div {padding: 14px 6px; background: var(--m_color_y-bs);}
 .pf_l_sch > div > p, .pf_l_edu > div > p, .pf_l_lcs > div > p {align-content: center;}
 .pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child, .pf_l_lcs > div > p:first-child {border-right: 1px solid var(--m_color_bk); padding-right: 1%;}
-.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child {width: 16%; border-right: 1px solid var(--m_color_bk); padding-right: 1%;}
-.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child, .pf_l_lcs > div > p:first-child {text-align: center;}
+.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child {border-right: 1px solid var(--m_color_bk); padding-right: 1%;}
+.pf_l_sch > div > p:first-child, .pf_l_edu > div > p:first-child, .pf_l_lcs > div > p:first-child {width: 16%; text-align: center;}
 .pf_l_sch > div > p:last-child, .pf_l_edu > div > p:last-child {width: 85%; padding-left: 10px;}
 .pf_l_edu > div > p:last-child {word-wrap: break-word;}
 .pf_l_edu > div > p > b {display: block; margin-bottom: 10px;}
@@ -48,12 +49,11 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 
 .pf_r_skill {padding: 8px 12px; box-sizing: border-box; border-radius: 5px; margin: 6% auto; background: #f7f0ce; width: 100%;}
 .pf_r_skill > h3 {line-height: 2rem;}
-.pf_r_type > div, .pf_r_skill > div {flex-wrap: wrap;}
 
 /* 메인 영역 - 프로필(스킬) */
 .pf_r_skill {width: 100%;}
-.skl_wrap ul, .skl_info {align-items: center; margin: 16px auto; flex-wrap: wrap;}
-.skl_wrap li {margin: 5px;}
+.skl_wrap ul, .skl_info {align-items: center; margin: 16px auto; flex-wrap: wrap; width: 100%;}
+.skl_wrap li {margin: 6.2px;}
 .skl_wrap li picture {width: 60px; margin: 0 5px; display: inline-block; cursor: pointer;}
 .skl_wrap li picture img {width: 100%;}
 .skl_wrap li picture:hover {filter: brightness(1.2); opacity: 0.8;}
@@ -89,7 +89,7 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 .prj_l_info_btn a {display: block; width: 100%; height: 100%; color: var(--m_color_wh); text-align: center; align-content: center;}
 
 .prj_r_mnu {margin-bottom: 10px;}
-.prj_r_mnu > button {border: none; background: #eee; padding: 6px 12px; border-radius: 5px; margin: 4px 2px; cursor: pointer;}
+.prj_r_mnu > button {border: none; background: #eee; padding: 10px 16px; border-radius: 5px; margin: 4px; cursor: pointer;}
 .prj_r_mnu > button:hover {background: #dcdcdc;}
 .prj_r_mnu > button.actmnu {background: var(--m_color_y-bs);}
 
@@ -112,23 +112,28 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 .prj_mod_btn_link:hover {background: #666;}
 
 /* 메인 영역 - 컨텍 */
-.cnt_left_side {width: 50%; margin: 0 auto;}
+.cnt_side {width: 50%; margin: 0 auto;}
 
-.cnt_l_adr_wrap {display: flex;}
-.cnt_l_adr {width: 33%; margin: 0 1%; background: #eee; text-align: center; border-radius: 3px;}
-.cnt_l_adr > div {border: 1px solid #3333331f; border-radius: 5px;}
-.cnt_l_adr > div img {width: 100%; border-radius: 5px 5px 0 0;}
-.cnt_l_adr p {padding: 4px;}
-.cnt_l_adr a:hover img {filter: contrast(0.95);}
+.cnt_adr_wrap {display: flex;}
+.cnt_adr {width: 33%; margin: 0 1%; background: #eee; text-align: center; border-radius: 3px;}
+.cnt_adr > div {border: 1px solid #3333331f; border-radius: 5px;}
+.cnt_adr > div img {width: 100%; border-radius: 5px 5px 0 0;}
+.cnt_adr p {padding: 4px;}
+.cnt_adr a:hover img {filter: contrast(0.95);}
 
-.cnt_l_email, .cnt_l_sent {width: 100%; margin: 18px auto; padding: 15px; text-align: center; box-sizing: border-box;}
-.cnt_l_email {border-top: 1px solid #dadada; border-bottom: 1px solid #dadada;}
+.cnt_email, .cnt_sent {width: 100%; margin: 18px auto; padding: 15px; text-align: center; box-sizing: border-box;}
+.cnt_email {border-top: 1px solid #dadada; border-bottom: 1px solid #dadada;}
+.cnt_email > a:hover {color: var(--m_color_y-dk);}
+.cnt_sent {border: 1px solid var(--m_color_y-bs); border-radius: 15px;}
+.cnt_sent > p {margin: 10px auto;}
 
 /* 반응형 */
 /* 태블릿, 모바일 공통 크기 */
 @media screen and (max-width: 1024px) {
     /* 프로젝트 */
   .prj_r_list li {max-width: fit-content;}
+
+  .cnt_side {width: 100%;}
 }
 
 /* 태블릿 크기 */
@@ -146,8 +151,8 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
   .pf_wrap, .prj_wrap {display: block;}
 
   /* 프로필 */
-  .pf_left_side {display: flex;}
-  .pf_l_pic, .pf_l_btm {width: 48%; margin: 0 auto;}
+  .pf_l_btm {display: flex;}
+  .pf_l_hobby, .pf_l_type {margin: 6% 1%;}
 
   .pf_left_side, .pf_right_side {width: 100%;}
   .pf_r_top {display: block;}
@@ -155,7 +160,7 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 
   /* 프로젝트 */
   .prj_left_side, .prj_right_side {width: 98%;}
-  .prj_right_side {margin-top: 4%;}
-
   .mku_tab, .mku_mob {right: -5%;}
+
+  .prj_right_side {margin-top: 4%;}
 }
