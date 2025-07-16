@@ -1,0 +1,129 @@
+그럼 다른 질문. 리스트를 페이지네이션 삽입하고 싶은데
+
+ChatGPT의 말:
+좋은 질문입니다! 프로젝트 리스트에 페이지네이션을 추가하면 한 번에 많은 항목을 보기 어려운 문제를 해결할 수 있어서 UX 측면에서 매우 유용하죠.
+
+✅ 목표
+project 배열에 있는 데이터들을 N개씩 나누어 페이지를 만들고, 페이지 번호를 클릭하면 해당 페이지의 리스트만 보여주도록 구현합니다.
+
+✅ 구현 전략
+상수 정의
+
+한 페이지당 보여줄 항목 수 (ITEMS_PER_PAGE)
+
+현재 페이지 상태 관리
+
+currentPage 변수 사용
+
+페이지네이션 UI 생성
+
+ul.pagination 등에 버튼을 만들어 삽입
+
+리스트 렌더링 함수 수정
+
+renderProjectList(page) 함수 작성
+
+탭 필터링 & 페이지네이션 연동
+
+필터가 변경되면 1페이지부터 다시 렌더링
+
+🔧 코드 예시
+아래는 기존 구조에 맞춘 페이지네이션 기능 추가 코드입니다:
+
+1. HTML에 페이지네이션 영역 추가
+html
+복사
+편집
+<!-- 프로젝트 리스트 하단 -->
+<div class="pagination" id="pagination"></div>
+2. JavaScript 수정
+상단에 추가:
+js
+복사
+편집
+const ITEMS_PER_PAGE = 6; // 한 페이지에 6개씩 보여줌
+let currentPage = 1;
+prjlist() 함수 수정 → renderProjectList(page = 1)
+js
+복사
+편집
+function renderProjectList(page = 1, filter = 'all') {
+  prj_list_ul.innerHTML = ''; // 기존 리스트 초기화
+
+  const filteredProjects = project.filter(prj => {
+    const type = normal_skill(prj.skill);
+    return filter === 'all' || type.includes(filter);
+  });
+
+  const start = (page - 1) * ITEMS_PER_PAGE;
+  const end = start + ITEMS_PER_PAGE;
+  const paginatedProjects = filteredProjects.slice(start, end);
+
+  paginatedProjects.forEach(prj => {
+    const li = document.createElement('li');
+    const pic = document.createElement('picture');
+    const img = document.createElement('img');
+
+    img.src = './images/project_img/' + prj.img[0].main;
+    img.alt = prj.name;
+    img.dataset.type = normal_skill(prj.skill);
+
+    pic.appendChild(img);
+    li.appendChild(pic);
+    prj_list_ul.appendChild(li);
+  });
+
+  setlist(); // 클릭 이벤트 연결
+  renderPagination(filteredProjects.length, page, filter);
+}
+페이지네이션 생성 함수
+js
+복사
+편집
+function renderPagination(totalItems, currentPage, filter) {
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+  const paginationContainer = document.getElementById('pagination');
+
+  paginationContainer.innerHTML = '';
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add('active');
+
+    btn.addEventListener('click', () => {
+      renderProjectList(i, filter);
+    });
+
+    paginationContainer.appendChild(btn);
+  }
+}
+탭 필터 이벤트 수정
+js
+복사
+편집
+prj_mnu_btn.forEach(btn => {
+  btn.addEventListener('click', () => {
+    prj_mnu_btn.forEach(b => b.classList.remove('actmnu'));
+    btn.classList.add('actmnu');
+
+    const filter = btn.dataset.type;
+    currentPage = 1;
+    renderProjectList(currentPage, filter);
+  });
+});
+3. DOMContentLoaded 실행 함수도 수정
+js
+복사
+편집
+document.addEventListener('DOMContentLoaded', () => {
+  renderProjectList(); // 초기 렌더링
+});
+✅ 결과
+project 배열을 페이지 단위로 나눠서 출력
+
+필터 선택 시 필터된 데이터 기준으로 페이지네이션 적용
+
+각 버튼 클릭 시 해당 페이지로 이동
+
+필요하다면 "이전 / 다음" 버튼, "처음 / 끝" 버튼, 애니메이션 전환 등도 추가할 수 있어요. 원하시면 그 부분도 도와드릴게요!
