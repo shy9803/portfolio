@@ -20,6 +20,17 @@ const prj_desc = document.querySelector('.prj_modal_info');
 const prj_mnu_btn = document.querySelectorAll('.prj_r_mnu > button'); // 탭 메뉴
 const prj_list_ul = document.querySelector('.prj_r_list ul'); // 프로젝트 리스트
 
+// 페이지네이션
+function get_item_per_page() { // 한 페이지에 보여줄 프로젝트 수(반응형 변화)
+  const width = window.innerWidth;
+
+  if(width >= 1024) return 6; // PC(데스크탑)
+  else if(width >= 768) return 3; // Tablet
+  else return 1; // Mobile
+}
+let current_page = 1; // 현재 페이지 번호
+let current_filter = 'all'; // 필터 기본값
+
 /* --- 함수 & 이벤트 작성 --- */
 // 프로젝트 리스트 추가
 function normal_skill(skill_arr) {
@@ -37,9 +48,30 @@ function normal_skill(skill_arr) {
   return filter_type.join('+');
 }
 
-// 리스트 목록 불러와 출력하기
-function prjlist() {
-  project.forEach(prj => {
+// 필터링 페이지네이션
+function filter_project() {
+  if(current_filter === 'all') return project;
+
+  return project.filter(prj => {
+    const type = normal_skill(prj.skill);  // 필터 버튼 타입 (ex. html+css)
+    return type.includes(current_filter); // 필터 조건 포함 여부
+  });
+}
+
+// 리스트 목록 불러와 출력하기 + 페이지네이션 기능 추가
+function prjlist(page = 1) {
+  // 페이지네이션 기능
+  const items_per_page = get_item_per_page(); // 한 페이지에 보여줄 프로젝트 수 호출
+  const filtered = filter_project();
+
+  prj_list_ul.innerHTML = ''; // 기존 리스트 초기화
+
+  const start = (page - 1) * items_per_page; // 시작
+  const end = start + items_per_page; // 마지막
+  const slice_project = filtered.slice(start, end); // 해당 페이지 범위만 추출
+
+  // 페이지 범위에 맞는 반복문으로 수정
+  slice_project.forEach(prj => {
     const li = document.createElement('li'); // li 태그 생성
     const pic = document.createElement('picture'); // pitcure 태그 생성
     const img = document.createElement('img'); // img 태그 생성
@@ -52,10 +84,114 @@ function prjlist() {
     li.appendChild(pic); // pitcure 태그(자식)를 li 태그(부모)에 추가하는 메서드
     prj_list_ul.appendChild(li); // li 태그(자식)를 ul 태그(부모)에 추가하는 메서드
   });
+
+  setlist(); // 새로 삽입된 이미지에 이벤트 재설정
 }
 
-// 페이지네이션
+// 페이지네이션 UI 생성 함수
+function create_pagination() {
+  const items_per_page = get_item_per_page(); // 프로젝트 수 호출
+  const filtered = filter_project();
 
+  const total_pages = Math.ceil(filtered.length / items_per_page); // 전체 페이지 수 계산
+  const pagination_wrap = document.querySelector('.pagination'); // 페이지네이션 영역
+  if(!pagination_wrap) return;
+
+  pagination_wrap.innerHTML = ''; // 기존 페이지 버튼 제거
+
+  // 처음으로 이동 버튼
+  const first_btn = document.createElement('button');
+  first_btn.type = 'button';
+  first_btn.className = 'pgn_btn';
+  first_btn.textContent = '«';
+  first_btn.disabled = current_page === 1;
+  first_btn.addEventListener('click', () => {
+    if(current_page !== 1) {
+      current_page = 1;
+      prjlist(current_page); // 리스트 페이지네이션 생성
+      create_pagination(); // 페이지네이션 재정비
+    }
+  });
+  pagination_wrap.appendChild(first_btn);
+
+  // 이전 버튼 생성
+  const prev_btn = document.createElement('button');
+  prev_btn.type = 'button';
+  prev_btn.className = 'pgn_btn nxpv_btn';
+  prev_btn.textContent = '◀';
+  prev_btn.disabled = current_page === 1; // 현재 페이지 번호가 1일때, 버튼 비활성화
+  prev_btn.addEventListener('click', () => {
+    if(current_page > 1) {
+      current_page--;
+      prjlist(current_page);
+      create_pagination();
+    }
+  });
+  pagination_wrap.appendChild(prev_btn);
+
+  // 페이지 번호 제한
+  const max_display = 3; // 최대 페이지 번호 버튼 수
+  let start_page = Math.max(1, current_page - 1);
+  let end_page = Math.min(total_pages, start_page + max_display - 1);
+
+  // 끝에서 5개만 나오도록 보정
+  if(end_page - start_page + 1 < max_display) {
+    start_page = Math.max(1,end_page - max_display + 1);
+  }
+
+  // 페이지 번호 버튼 생성
+  for(let i = start_page; i <= end_page; i++) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = i;
+    btn.classList.toggle('active', i === current_page); // 토글시 활성화 서식 적용
+
+    btn.addEventListener('click', () => {
+      current_page = i;
+      prjlist(current_page);
+      create_pagination();
+    });
+
+    pagination_wrap.appendChild(btn);
+  }
+
+  // 다음 버튼 생성
+  const next_btn = document.createElement('button');
+  next_btn.type = 'button';
+  next_btn.className = 'pgn_btn nxpv_btn';
+  next_btn.textContent = '▶';
+  next_btn.disabled = current_page === total_pages; // 현재 페이지가 마지막 번호일 때, 버튼 비활성화
+  next_btn.addEventListener('click', () => {
+    if(current_page < total_pages) {
+      current_page++;
+      prjlist(current_page);
+      create_pagination();
+    }
+  });
+  pagination_wrap.appendChild(next_btn);
+
+  // 마지막으로 이동 버튼
+  const last_btn = document.createElement('button');
+  last_btn.type = 'button';
+  last_btn.className = 'pgn_btn';
+  last_btn.textContent = '»';
+  last_btn.disabled = current_page === total_pages || total_pages === 0;
+  last_btn.addEventListener('click', () => {
+    if(current_page !== total_pages) {
+      current_page = total_pages;
+      prjlist(current_page);
+      create_pagination();
+    }
+  });
+  pagination_wrap.appendChild(last_btn);
+}
+
+// 화면 크기 변경시 반응형 재적용
+window.addEventListener('resize', () => {
+  current_page = 1;
+  prjlist(current_page);
+  create_pagination();
+});
 
 // 탭 필터링 + 이미지 클릭 시 상세 정보 표시 기능
 function setlist() {
@@ -66,14 +202,12 @@ function setlist() {
     btn.addEventListener('click', () => {
       prj_mnu_btn.forEach(b => b.classList.remove('actmnu')); // 활성화 서식 제거
       btn.classList.add('actmnu'); // 활성화 서식 적용
+      
+      current_filter = btn.dataset.type; // 탭 메뉴 필터의 data-type을 변수 저장
+      current_page = 1; // 페이지 초기화, 필터 변경시
   
-      const filter = btn.dataset.type; // 탭 메뉴 필터의 data-type을 변수 저장
-  
-      prj_list_img.forEach(item => {
-        const item_type = item.dataset.type; // 각 프로젝트 기술의 data-type을 변수 저장
-
-        item.parentElement.parentElement.style.display = (filter === 'all' || item_type.includes(filter)) ? 'block' : 'none'; // 'all' 이면 전체 또는 특정 기술이면 해당 프로젝트만 보이게, 아니면 안 보이게.
-      });
+      prjlist(current_page); // 페이지번호
+      create_pagination(); // 페이지네이션 재생성
     });
   });
 
@@ -200,12 +334,11 @@ prj_btn.addEventListener('click', () => {
   })
 });
 
-// 실행
+// 실행 (페이지 로딩시)
 document.addEventListener('DOMContentLoaded', () => {
-  prjlist();
-  setlist();
+  prjlist(current_page);
+  create_pagination();
 });
-
 
 
 // 이미지 및 정보 불러와서 출력 : 사용 안 한 수정된 skill.js 참고(data.js의 이미지 불러오기, GPT 이용한)
@@ -213,3 +346,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // 탭 메뉴 필터링 : 0306 수업 참고(jQuery -> JS) : GPT 도움
 // 모달 팝업창 내용 수정 : GPT 도움
 // data 폴더의 리스트 내용 출력 및 기타 내용 다듬기 : GPT 도움
+// 리스트의 페이지네이션: GPT 도움
