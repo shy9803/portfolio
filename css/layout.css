@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/*  */
+header, main, footer {width: 100%; overflow: hidden;}
+
+/* 헤더 서식 */
+header {position: fixed; left: 0; top: 0; width: 100%; height: 80px; z-index: 100; background: var(--m_color_bk); color: var(--m_color_wh);}
+header > h1 {font-family: "Damion", cursive; float: left; padding: 20px 0px 0px 30px; font-size: var(--font_24);}
+header > h1 > a {display: block; width: 50%;}
+header > h1 img {width: 100%;}
+header nav {width: 30%; float: right;}
+header nav > ul {display: flex; justify-content: space-around;}
+header nav > ul > li{line-height: 80px;}
+header nav a {border: none; background: none; color: var(--m_color_wh); cursor: pointer; font-size: var(--font_20); transition: 0.2s; font-family: "Damion", cursive;}
+header nav a:hover {text-decoration: underline; font-weight: bold; color: var(--m_color_y-bs);}
+.nav_back {display: none;}
+
+/* 메인 영역 - 콘텐츠 레이아웃 서식 */
+section {width: 100%; background: var(--m_color_wh); transition: 0.5s; padding-top: 80px;}
+
+/* 푸터 영역 서식 */
+footer {background:#666;}
+footer address {text-align: center; color: var(--m_color_wh); font-style: normal; padding: 30px 0;}
+
+/* 반응형 */
+/* 태블릿 크기 */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+
+}
+
+/* 모바일 크기 */
+@media screen and (max-width: 767px) {
+  header {overflow: visible;}
+  header nav {width: 100%;}
+  .nav_back {display: block; width: 100%; background: #444; height: 64px; margin-top: 80px;}
+
+  section {padding-top: 144px;}
+}

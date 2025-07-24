@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+:root {
+  --m_color_bk: #333; --m_color_wh: #fff; --m_color_y-wh:#EDE8CF; --m_color_y-bs: #DFC046; --m_color_y-dk: #4B4225;
+  --font_12: 12px; --font_14: 14px; --font_16: 16px; --font_18: 18px; --font_20: 20px; --font_24: 24px;
+}
+
+/* font-family (google font) */
+/* Damion: Regular 400 단일 */
+/* Nanum Gothic : Regular 400, Bold 700, ExtraBold 800 */
+
+/* 기본 설정 서식 */
+* {margin: 0; padding: 0;}
+ul, ol, li {list-style: none;}
+body {font-family: 'Nanum Gothic', arial, sans-serif; font-size: var(--font_14); color: var(--m_color_bk);}
+a {text-decoration: none; color: var(--m_color_bk);}
+body, html {scroll-behavior: smooth;}
+
+/* 공통 적용 */
+.dsp_none {display: none;}

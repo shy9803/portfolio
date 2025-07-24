@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sh.y portfolio</title>
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/common.css" type="text/css"> <!-- 기본 공통 서식-->
+  <link rel="stylesheet" href="./css/layout.css" type="text/css"> <!-- 레이아웃 및 헤더,푸터 서식 -->
+  <link rel="stylesheet" href="./css/main.css" type="text/css"> <!-- 레이아웃 및 헤더,푸터 서식 -->
+  <link rel="stylesheet" href="./css/modal.css" type="text/css"> <!-- 모달 팝업화면 -->
+  <link rel="stylesheet" href="./css/scrollevent.css" type="text/css">
+
+  <!-- font-family (google font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Damion&family=Nanum+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="#" title="메인화면">
+        <img src="./images/logo_white.png" alt="로고">
+      </a>
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="#intro" title="소개" class="button">Intro</a></li>
+        <li><a href="#profile" title="약력" class="button">Profile</a></li>
+        <li><a href="#project" title="과제" class="button">Project</a></li>
+        <li><a href="#contact" title="만남" class="button">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav_back"></div>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2 class="dsp_none">😀 소개(Intro)</h2>
+      <div class="int_intro">
+        <h3>안녕하세요, 프론트엔드 개발자 양성현입니다.</h3>
+        <p>오랫동안 빛을 내며 앞으로의 길을 밝혀주는 촛불처럼 나아가겠습니다.</p>
+        <p>꺼지지 않는 불꽃처럼 앞으로 전진하겠습니다.</p>
+      </div>
+      <div class="int_anime">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </section>
+
+    <section id="profile">
+      <h2>📕 프로필(Profile)</h2>
+      <article class="pf_wrap">
+        <h3 class="dsp_none">학력,교육사항,자격증 정보</h3>
+        <div class="pf_left_side">
+          <div class="pf_l_pic">
+            <picture><img src="./images/profile.png" alt="프로필 사진"></picture>
+          </div>
+          <div class="pf_l_btm">
+            <div class="pf_l_hobby">
+              <h3>취미</h3>
+              <div>
+                <p><picture><img src="./images/profile_flaticon/listen.png" alt="listen"></picture>음악 감상</p>
+                <p><picture><img src="./images/profile_flaticon/dice.png" alt="listen"></picture>보드게임</p>
+                <p><picture><img src="./images/profile_flaticon/puzzle.png" alt="listen"></picture>퍼즐(스도쿠, 직소퍼즐, 피크로스 등)</p>
+                <p><picture><img src="./images/profile_flaticon/photo-camera.png" alt="listen"></picture>사진 촬영(풍경)</p>
+                <p><picture><img src="./images/profile_flaticon/open-book.png" alt="listen"></picture>독서</p>
+              </div>
+            </div>
+            <div class="pf_l_type">
+              <h3>성향</h3>
+              <div>
+                <p>근면성</p>
+                <p>성실함</p>
+                <p>꼼꼼함</p>
+                <p>책임감</p>
+                <p>꾸준함</p>
+                <p>조심성</p>
+                <p>안전성</p>
+                <p>신중함</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf_right_side">
+          <div class="pf_r_top">
+            <div class="pf_r_top_l">
+              <div class="pf_l_sch">
+                <h3>학력</h3>
+                <div>
+                  <p>2022.03 &#126; 2023.02</p>
+                  <p>안산대학교 융합디자인학부 졸업 &#40;전공심화&#41;</p>
+                </div>
+                <div>
+                  <p>2017.03 &#126; 2022.02</p>
+                  <p>안산대학교 멀티미디어디자인과 졸업</p>
+                </div>
+              </div>
+              <div class="pf_l_edu">
+                <h3>교육사항</h3>
+                <div>
+                  <p>2024.12 &#126; 2025.07</p>
+                  <p>
+                    <b>그린컴퓨터아트학원</b>
+                    &#x300E;프로젝트기반&#x300F;프론트엔드 개발자 양성(Figma/React/Next.js/PHP/Mysql/chatGPT) 수료</p>
+                </div>
+              </div>
+            </div>
+            <div class="pf_r_top_r">
+              <div class="pf_l_lcs">
+                <h3>자격증</h3>
+                <div>
+                  <p>2023.09</p>
+                  <p>컬러리스트기사 </p>
+                  <p>한국산업인력공단</p>
+                </div>
+                <div>
+                  <p>2022.09</p>
+                  <p>웹디자인기능사</p>
+                  <p>한국산업인력공단</p>
+                </div>
+                <div>
+                  <p>2021.12</p>
+                  <p>시각디자인산업기사 </p>
+                  <p>한국산업인력공단</p>
+                </div>
+                <div>
+                  <p>2017.06</p>
+                  <p>GTQ 1급 (포토샵)</p>
+                  <p>한국생산성본부</p>
+                </div>
+                <div>
+                  <p>2017.01</p>
+                  <p>1종보통운전면허</p>
+                  <p>경찰청(운전면허시험관리단)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pf_r_btm">
+            <div class="pf_r_skill">
+              <h3>기술(Skill)</h3>
+              <div class="skl_wrap">
+                <ul class="skl_list">
+                  <li>
+                    <picture><img src="./images/skill_img/html5.png" alt="html5"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/css3.png" alt="css3"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/javascript.png" alt="javascript"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/jquery.png" alt="jquery"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/sass.png" alt="sass"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/bootstrap.png" alt="bootstrap"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/tailwindcss.png" alt="tailwindcss"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/react.png" alt="react"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/nextjs.png" alt="nextjs"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/ajax.png" alt="ajax"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/php.png" alt="php"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/mysql.png" alt="mysql"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/git.png" alt="git"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/github.png" alt="github"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/cloudtype.png" alt="cloudtype"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/aws.png" alt="aws"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/netlify.png" alt="netlify"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/cafe24.png" alt="cafe24"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/figma.png" alt="figma"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/adobe_photoshop.png" alt="adobe_photoshop"></picture>
+                  </li>
+                  <li>
+                    <picture><img src="./images/skill_img/adobe_illustrator.png" alt="adobe_illustrator"></picture>
+                  </li>
+                </ul>
+
+                <div class="skl_info">
+                  <p data-key="info"></p>
+                  <input type="range" name="skl_range" id="skl_range" value="0" data-key="range" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      </article>
+    </section>
+    
+    <section id="project">
+      <h2>🎨 작품(Project)</h2>
+      <article class="prj_wrap">
+        <h3 class="dsp_none">만들었던 작품들 목록</h3>
+        <div class="prj_left_side">
+          <div class="prj_l_mockup">
+            <div class="prj_l_mku_pc">
+              <div class="mku_pc" data-key="pc"></div>
+              <div class="mku_pc_btm"></div>
+            </div>
+            <div class="prj_l_mku_tab">
+              <div class="mku_tab" data-key="tablet"></div>
+            </div>
+            <div class="prj_l_mku_mob">
+              <div class="mku_mob" data-key="mobile"></div>
+            </div>
+          </div>
+          <div class="prj_l_info">
+            <div class="prj_l_info_cont">
+              <p data-key="name">프로젝트명</p>
+              <p data-key="skill">사용한 기술</p>
+              <p data-key="date">작업 기간</p>
+              <p data-key="person">작업 인원(개인/팀 n명)</p>
+              <p data-key="size">해상도</p>
+              <p data-key="info">간략 소개</p>
+            </div>
+            <div class="prj_l_info_btn">
+              <a href="#prj_modal" title="상세보기">상세</a>
+            </div>
+          </div>
+        </div>
+        <div class="prj_right_side">
+          <div class="prj_r_mnu">
+            <button type="button" class="actmnu" data-type="all">ALL</button>
+            <button type="button" data-type="html+css">HTML+CSS</button>
+            <button type="button" data-type="js">Javascript</button>
+            <button type="button" data-type="jquery">jQuery</button>
+            <button type="button" data-type="php">PHP</button>
+            <button type="button" data-type="react">React</button>
+          </div>
+          <div class="prj_r_list">
+            <div class="pagination"></div> <!-- 페이지네이션 버튼 영역 -->
+            <ul></ul>
+          </div>
+        </div>
+      </article>
+
+      <div id="prj_modal">
+        <div class="prj_modal_inner">
+          <h3>프로젝트 상세보기</h3>
+          <button type="button">닫기</button>
+          <div class="prj_modal_cont">
+            <div class="prj_modal_btnwrap">
+              <a href="#" title="기획서" class="prj_mod_btn_plan">(Figma) 기획서</a>
+              <a href="#" title="홈페이지" class="prj_mod_btn_link">홈페이지</a>
+            </div>
+            <div class="prj_modal_info"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <h2>📱 연락(Contact)</h2>
+      <article class="cnt_wrap">
+        <h3 class="dsp_none">링크 및 주소, 간단한 입력창</h3>
+        <div class="cnt_side">
+          <div class="cnt_adr_wrap">
+            <div class="cnt_adr adr_dh">
+              <div>
+                <a href="http://shyport.dothome.co.kr/" title="닷홈 연결" target="_blank">
+                  <picture><img src="./images/contact_img/dothome.png" alt="dothome"></picture>
+                  <p>닷홈 주소</p>
+                </a>
+              </div>
+            </div>
+            <div class="cnt_adr adr_gh">
+              <div>
+                <a href="https://github.com/shy9803" title="깃허브 연결" target="_blank">
+                  <picture><img src="./images/contact_img/github.png" alt="github"></picture>
+                  <p>깃허브 주소</p>
+                </a>
+              </div>
+            </div>
+            <div class="cnt_adr adr_no">
+              <div>
+                <a href="https://www.notion.so/shy9803/KDT-17b6aff1812e80b0a9bcf0ef7b06b78d?source=copy_link" title="노션 연결" target="_blank">
+                  <picture><img src="./images/contact_img/notion.png" alt="notion"></picture>
+                  <p>노션 주소</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="cnt_email">
+            <a href="mailto:shyune308@naver.com">shyune308@naver.com</a>
+          </div>
+          <div class="cnt_sent">
+            <p>디자인과 전공으로 기본적인 영상 편집과 3D 모델링, 편집 디자인 등도 가능한 개발자입니다.</p>
+            <p>졸업 후 약 1년 반동안 취업 직종에 대한 고민과 함께 기본 언어인 HTML, CSS, Javascript를 독학하며 취업활동을 했었고, <br> 정보처리기사 자격증도 여러번 실기 시험에 응했습니다.</p>
+            <p>하지만 시간을 너무 허비하기도 했고, 아무래도 더 이상은 혼자서 많은 것을 학습하여 취업하기에는 불가능할 것 같다는 판단하에<br> '프론트엔드 개발' 프로그램 과정에 참여하여 약 6개월간의 교육을 통해 개발자라는 직업에 더 적합한 인물이 되었습니다.</p>
+            <p>아직 부족한 점이 많지만, 꾸준한 자기개발을 통해서 극복하고 발전해 나가겠습니다.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <address>
+      2025 sh.y portfolio &copy; All Rights Reserved.<br>
+      (단, 리뉴얼 페이지는 원 사이트 기업, 일부 페이지는 별도 출처에 귀속)
+    </address>
+  </footer>
+
+  <!-- jQuery 라이브러리 연결 -->
+  <script src="./js/jquery-3.7.1.min.js"></script>
+  <script src="./js/jquery.cookie.js"></script>
+
+  <!-- data 연결 -->
+  <script src="./data/skilltxt.js"></script>
+  <script src="./data//projectxt.js"></script>
+
+  <!-- js 연결 -->
+  <script src="./js/skill.js"></script>
+  <script src="./js/project.js"></script>
+  <script src="./js/modal.js"></script>
+  <script src="./js/scrollevent.js"></script>
+</body>
+</html>
