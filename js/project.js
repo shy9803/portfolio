@@ -20,6 +20,10 @@ const prj_desc = document.querySelector('.prj_modal_info');
 const prj_mnu_btn = document.querySelectorAll('.prj_r_mnu > button'); // 탭 메뉴
 const prj_list_ul = document.querySelector('.prj_r_list ul'); // 프로젝트 리스트
 
+// 페이지 총 개수
+const prj_page_count = document.querySelector('.prj_r_list > .page_count');
+const prj_list_count = document.querySelector('.prj_r_list > .list_count');
+
 // 페이지네이션
 function get_item_per_page() { // 한 페이지에 보여줄 프로젝트 수(반응형 변화)
   const width = window.innerWidth;
@@ -62,7 +66,14 @@ function filter_project() {
 function prjlist(page = 1) {
   // 페이지네이션 기능
   const items_per_page = get_item_per_page(); // 한 페이지에 보여줄 프로젝트 수 호출
-  const filtered = filter_project();
+  const filtered = filter_project(); // 전체 프로젝트 배열
+
+  const total_pages = Math.ceil(filtered.length / items_per_page); // 전체 페이지
+  const current_list_count = filtered.length; // 전체 리스트 수
+
+  // 총 개수 및 페이지 정보 텍스트
+  prj_page_count.textContent = `${page} / ${total_pages}`;
+  prj_list_count.textContent = `(총 ${current_list_count}개)`;
 
   prj_list_ul.innerHTML = ''; // 기존 리스트 초기화
 
@@ -326,11 +337,13 @@ function handle_project(item) {
 prj_btn.addEventListener('click', () => {
   if(prj_modal) { // 참일 경우
     prj_modal.style.display = 'block';
+    document.body.classList.add('modal-open'); // 클래스 추가
   }
 
   const btn = document.querySelector('#prj_modal button');
   btn.addEventListener('click', () => {
     prj_modal.style.display = 'none';
+    document.body.classList.remove('modal-open'); // 클래스 제거
   })
 });
 
@@ -347,3 +360,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // 모달 팝업창 내용 수정 : GPT 도움
 // data 폴더의 리스트 내용 출력 및 기타 내용 다듬기 : GPT 도움
 // 리스트의 페이지네이션: GPT 도움
+// 리스트 및 페이지 수 구하기 : GPT 도움

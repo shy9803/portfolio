@@ -145,75 +145,18 @@
             <div class="pf_r_skill">
               <h3>기술(Skill)</h3>
               <div class="skl_wrap">
-                <ul class="skl_list">
-                  <li>
-                    <picture><img src="./images/skill_img/html5.png" alt="html5"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/css3.png" alt="css3"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/javascript.png" alt="javascript"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/jquery.png" alt="jquery"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/sass.png" alt="sass"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/bootstrap.png" alt="bootstrap"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/tailwindcss.png" alt="tailwindcss"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/react.png" alt="react"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/nextjs.png" alt="nextjs"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/ajax.png" alt="ajax"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/php.png" alt="php"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/mysql.png" alt="mysql"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/git.png" alt="git"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/github.png" alt="github"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/cloudtype.png" alt="cloudtype"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/aws.png" alt="aws"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/netlify.png" alt="netlify"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/cafe24.png" alt="cafe24"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/figma.png" alt="figma"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/adobe_photoshop.png" alt="adobe_photoshop"></picture>
-                  </li>
-                  <li>
-                    <picture><img src="./images/skill_img/adobe_illustrator.png" alt="adobe_illustrator"></picture>
-                  </li>
-                </ul>
+                <ul class="skl_list"></ul>
 
                 <div class="skl_info">
                   <p data-key="info"></p>
-                  <input type="range" name="skl_range" id="skl_range" value="0" data-key="range" disabled>
+                  <div class="skl_info_range_wrap">
+                    <input type="range" name="skl_range" id="skl_range" value="0" data-key="range" disabled>
+                    <div class="range">
+                      <span>0</span>
+                      <span>50</span>
+                      <span>100</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -263,25 +206,13 @@
             <button type="button" data-type="react">React</button>
           </div>
           <div class="prj_r_list">
+            <p class="page_count"></span> <!-- 페이지 수 -->
+            <p class="list_count"></span> <!-- 리스트 개수 -->
             <div class="pagination"></div> <!-- 페이지네이션 버튼 영역 -->
             <ul></ul>
           </div>
         </div>
       </article>
-
-      <div id="prj_modal">
-        <div class="prj_modal_inner">
-          <h3>프로젝트 상세보기</h3>
-          <button type="button">닫기</button>
-          <div class="prj_modal_cont">
-            <div class="prj_modal_btnwrap">
-              <a href="#" title="기획서" class="prj_mod_btn_plan">(Figma) 기획서</a>
-              <a href="#" title="홈페이지" class="prj_mod_btn_link">홈페이지</a>
-            </div>
-            <div class="prj_modal_info"></div>
-          </div>
-        </div>
-      </div>
     </section>
     
     <section id="contact">
@@ -335,6 +266,21 @@
       (단, 리뉴얼 페이지는 원 사이트 기업, 일부 페이지는 별도 출처에 귀속)
     </address>
   </footer>
+
+  <!-- 🎨 작품(Project) 모달 팝업 -->
+  <div id="prj_modal">
+    <div class="prj_modal_inner">
+      <h3>프로젝트 상세보기</h3>
+      <button type="button">닫기</button>
+      <div class="prj_modal_cont">
+        <div class="prj_modal_btnwrap">
+          <a href="#" title="기획서" class="prj_mod_btn_plan">(Figma) 기획서</a>
+          <a href="#" title="홈페이지" class="prj_mod_btn_link">홈페이지</a>
+        </div>
+        <div class="prj_modal_info"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- jQuery 라이브러리 연결 -->
   <script src="./js/jquery-3.7.1.min.js"></script>

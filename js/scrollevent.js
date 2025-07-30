@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section');
 
   const handle_scroll = () => {
+    // 모달 열렸을 경우 스크롤 효과 무시
+    // const is_modal_open = prj_modal && prj_modal.style.display === 'block';
+    // if(is_modal_open) return;
+    if(document.body.classList.contains('modal-open')) return;
+
     const scroll_y = window.scrollY;
 
     sections.forEach(section => {

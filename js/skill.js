@@ -1,7 +1,23 @@
-const skl_img = document.querySelectorAll('.skl_wrap > ul > li > picture > img'); // 각 스킬 이미지 부모 태그
+const skl_list = document.querySelector('.skl_wrap > ul'); // list
 const skl_info = document.querySelector('.skl_info'); // 내용 출력
 
+// 이미지 생성(data 폴더의 내용 불러와서)
+data.forEach(skill => {
+  const li = document.createElement('li');
+  const picture = document.createElement('picture');
+  const img = document.createElement('img');
+
+  img.src = `./images/skill_img/${skill.img}`;
+  img.alt = skill.name;
+
+  picture.appendChild(img);
+  li.appendChild(picture);
+  skl_list.appendChild(li);
+});
+
 // 각 요소 클릭시 해당 부분 선택
+const skl_img = document.querySelectorAll('.skl_wrap > ul > li > picture > img'); // 각 스킬 이미지 부모 태그
+
 skl_img.forEach(sklm => {
   sklm.addEventListener('click', () => {
     const skl_alt = sklm.alt; // img태그의 alt값
