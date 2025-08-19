@@ -93,10 +93,10 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 .mku_pc, .mku_pc_btm {left: 50%;}
 .mku_pc {top: 50%; width: 100%; height: 100%; box-sizing: border-box; border: 6px solid var(--m_color_bk); z-index: 2; border-radius: 5px; max-width: 540px; max-height: 265px;}
 .mku_pc_btm {background: var(--m_color_bk); padding: 40px; border-radius: 50%; z-index: 1; top: 82%; width: 22%; height: 0%;}
-.mku_tab, .mku_mob {border: 3px solid #aaa; border-radius: 5px; right: 10%;}
+.mku_tab, .mku_mob {border: 3px solid #918f77; border-radius: 5px; right: 10%;}
 .mku_tab {top: 73%; width: 100%; height: 100%; z-index: 5; max-width: 105px; max-height: 156px;}
 .mku_mob {top: 81%; width: 100%; height: 100%; z-index: 8; max-width: 50px; max-height: 90px;}
-.prj_l_mockup img {width: 100%; height: 100%; object-fit: fill;}
+.prj_l_mockup img {width: 100%; height: 100%; object-fit: contain;}
 
 .prj_l_info {padding: 4px; position: relative;}
 .prj_l_info_cont {background: #efefef; box-sizing: border-box; padding: 5px; border-radius: 6px; border: 1px solid #3333331f;}
@@ -145,6 +145,10 @@ section > h2 {text-indent: 10px; margin-top: 15px;}
 .prj_mod_btn_link {background: #555; color: var(--m_color_wh);}
 .prj_mod_btn_link:hover {background: #666;}
 .prj_modal_info {width: 100%; height: 100%;}
+.prj_modal_info > .prj_mywork_wrap {width: 100%; margin: 10px auto;}
+.prj_modal_info .prj_mywork, .prj_modal .prj_comment {margin: 5px auto;}
+.prj_modal_info .prj_label {font-weight: bold; color: var(--m_color_y-dk);}
+.prj_modal_info .prj_label::before {display: inline-block; content: '\2022'; margin-right: 2px;}
 .prj_modal_info > picture {display: block; width: 100%; height: 100%; overflow-y: scroll;}
 .prj_modal_info img {width: 100%;}
 

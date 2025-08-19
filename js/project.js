@@ -228,18 +228,22 @@ function setlist() {
   });
 }
 
-// 각 이미지를 클릭할 때
+// 각 이미지를 클릭할 때(해당 프로젝트의 상세정보 모달 열기)
 function handle_project(item) {
   // console.log(item);
 
   const prj_alt = item.alt; // index.html의 img태그 alt명
-  const select_data = project.find(prj => prj.name === prj_alt); // img태그 alt명과 data.js와 비교하여 값 찾기
+  const select_data = project.find(prj => prj.name === prj_alt); // img태그 alt명과 data.js와 비교하여 값 
+  
+  // 해당 변수들 확인 필요 (project_mywork의 name 속성을 불러오는지 여부)
+  const prj_name = select_data.name; // data의 js 확인
+  const mywork_data = project_mywork.find(prj_m => prj_m.name === prj_name); // project 데이터의 name과 project_mywork 데이터의 name 일치 여부 확인
 
   if(!select_data) return;
 
   // projextxt.js의 img[]의 해당 값 찾기
   const getkey = key => {
-    const found = select_data.img.find(obj => obj[key]); // keyy에 맞는 내용을 찾는다.
+    const found = select_data.img.find(obj => obj[key]); // key에 맞는 내용을 찾는다.
     return found ? found[key] : null; // 참이면 key값이 포함된 값을, 거짓이면 null값을 반환.
   }
 
@@ -317,8 +321,40 @@ function handle_project(item) {
   }
 
   // 참이면 detail을, 거짓이면 (값 없음) 
-  prj_desc.innerHTML = ''; // 기존 내용 초기화
+  prj_desc.innerHTML = ''; // 기존 내용 
   
+  // 담당 업무 설명 텍스트 & 코멘트 내용 텍스트 => 확인 필요
+  if (mywork_data) {
+  const { mywork, comment } = mywork_data; // 비구조화 할당 방식의 변수 선언
+
+  if (mywork || comment) {
+    // wrapper 요소 생성 (선택)
+    const myworkBox = document.createElement('div');
+    myworkBox.className = 'prj_mywork_wrap';
+
+    // mywork가 있을 경우
+    if (mywork) {
+      const myworkDiv = document.createElement('p');
+      myworkDiv.className = 'prj_mywork';
+      myworkDiv.innerHTML = '<span class="prj_label">담당 업무: </span>' + mywork;
+      myworkBox.appendChild(myworkDiv);
+    }
+
+    // comment가 있을 경우
+    if (comment) {
+      const commentDiv = document.createElement('p');
+      commentDiv.className = 'prj_comment';
+      commentDiv.innerHTML = '<span class="prj_label">코멘트: </span>' + comment;
+      myworkBox.appendChild(commentDiv);
+    }
+
+    // 내용이 있으면 전체 박스를 출력
+    prj_desc.appendChild(myworkBox);
+  }
+}
+
+
+  // 상세 설명 이미지
   if(select_data.detail) {
     const pic = document.createElement('picture');
     const img = document.createElement('img');
@@ -361,3 +397,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // data 폴더의 리스트 내용 출력 및 기타 내용 다듬기 : GPT 도움
 // 리스트의 페이지네이션: GPT 도움
 // 리스트 및 페이지 수 구하기 : GPT 도움
+// 담당업무 및 코멘트 내용 출력: GPT 도움
